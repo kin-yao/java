@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost and Found System</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/logo1.jpg" alt="Logo" class="logo-img">
+              </a>
+
+            <h1>Egerton University <br> and Found System</h1>
+            <nav class="nav-links">
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="admin-login.html">User Login</a></li>
+                  <li><a href="records.html">Records</a></li>
+                  <li><a href="report.html">Reports</a> </li>
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <h1>Lost and Found Items</h1>
+
+        <div class="container">
+        <select id="category" onchange="showItems()">
+          <option value="electronics">Electronics</option>
+          <option value="accessories">Accessories</option>
+          <option value="clothing">Clothing</option>
+          <option value="bags_luggage">Bags and Luggage</option>
+          <option value="keys_personal">Keys and Personal Items</option>
+        </select>
+        </div>
+
+        <div class="img-container">
+            <div class="image-container selected-category" id="electronicsCategory">
+                <div class="image-category">
+                    <h2> Electronics</h2>
+                    <img src="images/phone.jpg" alt="Phone">
+                    <img src="images/phone1.jpg" alt="Laptop">
+                    <img src="images/phone2.jpg" alt="Earbuds">
+                    <img src="images/phone1.jpg" alt="Laptop">
+                    <img src="images/laptop1.jpg" alt="Laptop">
+                    <img src="images/laptop2.jpg" alt="Laptop">
+                </div>
+            </div>
+        
+            </div>
+        </div>
+    </main>
+
+
+     <script>
+        function showItems() {
+            var select = document.getElementById("category");
+            var selectedCategory = select.options[select.selectedIndex].value;
+            var categories = document.getElementsByClassName("image-container");
+
+            for (var i = 0; i < categories.length; i++) {
+                categories[i].style.display = "none";
+            }
+
+            document.getElementById(selectedCategory + "Category").style.display = "block";
+        }
+    </script>
+
+    
+    <footer id="homepage-footer">
+        <p>&copy; Copyright. <span id="currentYear"></span> Egerton Lost and Found System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
